@@ -8,9 +8,24 @@ var roster = [
 ]
 
 // [[roster[0][0], roster[1][0]], [roster[0][1], roster[1][1]],...
-
+//var object_roster = [];
 function convert_roster_format(nestedArray) {
     // your convert code here
+    var menu = [];
+    for (var i=1; i<nestedArray.length; i++){
+      if(i>0){
+          var obj={};
+          for (var j=0; j<nestedArray[j].length;j++){
+              var prop = nestedArray[0][j];
+              obj[prop]= nestedArray[i][j];
+          }
+          menu.push(obj)
+      }
+
+    }
+
+  return menu
+
 }
 
 var object_roster = convert_roster_format(roster)
