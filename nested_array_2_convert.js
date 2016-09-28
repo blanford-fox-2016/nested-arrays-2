@@ -11,7 +11,22 @@ var roster = [
 
 function convert_roster_format(nestedArray) {
     // your convert code here
-}
+    var playerList = []
+      for (var i = 1; i <nestedArray.length; i++){
+        var kur = nestedArray[i];
+        var player = {};
+        for (var j = 0; j <kur.length; j++){
+          var prop = nestedArray[0][j];
+          player[prop] = nestedArray[i][j];
+        }
+        playerList.push(player);
+        // console.log(player);
+      }
+      // console.log(playerList);
+      return playerList;
+  }
+
+
 
 var object_roster = convert_roster_format(roster)
 console.log(object_roster[2])
