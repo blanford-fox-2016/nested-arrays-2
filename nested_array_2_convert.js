@@ -10,10 +10,33 @@ var roster = [
 // [[roster[0][0], roster[1][0]], [roster[0][1], roster[1][1]],...
 
 function convert_roster_format(nestedArray) {
+    var arrObj = [];
     // your convert code here
+    for (var i = 0; i < nestedArray.length; i++) {
+      if (i > 0) {
+        var obj = {};
+        for (var j = 0; j < nestedArray[i].length; j++) {
+          var prop = nestedArray[0][j];
+          obj[prop] = nestedArray[i][j];
+        }
+        arrObj.push(obj);
+      }
+    }
+    // roster.splice(roster.length, 1);
+    return arrObj;
 }
 
 var object_roster = convert_roster_format(roster)
+
+//SHOWING ALL OBJECT
+console.log("=======ALL PLAYERS=======");
+console.log(object_roster);
+console.log("=======ALL PLAYERS=======");
+
+console.log("\n");
+
+console.log("---Testing---");
+
 console.log(object_roster[2])
 
 // => { "Number": 31, "Name": "Harvey Kay", "Position": "Shooting Guard", "Points per Game": [0, 30, 16, 0, 25] }
