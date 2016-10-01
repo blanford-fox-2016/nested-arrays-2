@@ -11,11 +11,40 @@ var roster = [
 
 function convert_roster_format(nestedArray) {
     // your convert code here
+	var arr = [];
+	var data = [];
+	var object =  {};
+	var title = [];
+	for(var i = 0 ; i < nestedArray.length ; i++){
+		
+		if(i == 0){
+			title.push(nestedArray[0][0]);
+			title.push(nestedArray[0][1]);
+			title.push(nestedArray[0][2]);
+			title.push(nestedArray[0][3]);
+		}else{
+			data = nestedArray[i];
+			
+			/*object = {
+				"1" : data[0],
+				"2": data[1],
+				"3": data[2],
+				"4": data[3]
+			};*/
+			object[title[0]] = data[0];
+			object[title[1]] = data[1];
+			object[title[2]] = data[2];
+			object[title[3]] = data[3];
+		}
+		arr.push(object);
+	}
+	//console.log(arr);
+	return arr;
 }
-
-var object_roster = convert_roster_format(roster)
-console.log(object_roster[2])
+console.log(convert_roster_format(roster))
+//var object_roster = convert_roster_format(roster)
+//console.log(object_roster[2])
 
 // => { "Number": 31, "Name": "Harvey Kay", "Position": "Shooting Guard", "Points per Game": [0, 30, 16, 0, 25] }
 
-console.log(object_roster[0]["Name"] == "Joe Schmo") // outputs true
+//console.log(object_roster[0]["Name"] == "Joe Schmo") // outputs true
